@@ -3,195 +3,265 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Nguyễn Đình Xuyên — Lập trình viên & Quản trị VPS</title>
-<meta name="description" content="Nguyễn Đình Xuyên: đam mê công nghệ, lập trình, vận hành server trên VPS và quản lý cơ sở dữ liệu với phpMyAdmin.">
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;500;700;900&display=swap" rel="stylesheet">
+<title>Nguyễn Đình Xuyên — Nhận Setup Server & Chạy VPS & Game Jar Mod</title>
+<meta name="description" content="Nguyễn Đình Xuyên nhận setup server, cài đặt và vận hành website trên VPS, quản lý phpMyAdmin.">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#05060f;--tx:#e8ecff;--mut:#97a0c8;--a:#5ee7ff;--b:#a56bff;--c:#ff5fa8;--card:rgba(255,255,255,.05);--bd:rgba(255,255,255,.12);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root{--tx:#141a44;--mut:#5b6390;--a:#2f6bff;--b:#8a4dff;--c:#ff6a9e;--o:#ff9a3d;--bd:rgba(255,255,255,.85);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--tx);font-family:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;overflow-x:hidden;line-height:1.6}
+body{margin:0;color:var(--tx);font-family:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.65;overflow-x:hidden;background:linear-gradient(180deg,#dff1ff 0%,#eef0ff 45%,#ffe9f3 100%);background-attachment:fixed}
 #bg{position:fixed;inset:0;width:100%;height:100%;z-index:0}
 main,nav,footer{position:relative;z-index:2}
-nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:calc(14px + env(safe-area-inset-top,0px)) 5vw 14px;backdrop-filter:blur(14px);background:rgba(5,6,15,.55);border-bottom:1px solid var(--bd)}
-nav b{font-weight:900;letter-spacing:.5px;background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
-nav div a{color:var(--mut);text-decoration:none;margin-left:22px;font-size:14px;transition:.3s}
-nav div a:hover{color:var(--a)}
-section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:110px 6vw 70px;max-width:1200px;margin:auto}
-#hero{align-items:flex-start}
-.tag{display:inline-block;padding:7px 16px;border:1px solid var(--bd);border-radius:99px;background:var(--card);color:var(--a);font-size:13px;letter-spacing:2px;text-transform:uppercase;backdrop-filter:blur(8px)}
-h1{font-size:clamp(40px,8vw,104px);line-height:1.02;margin:22px 0 18px;font-weight:900;text-shadow:0 10px 60px rgba(94,231,255,.25)}
-h1 span{background:linear-gradient(100deg,var(--a),var(--b),var(--c),var(--a));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 6s linear infinite}
+nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:flex-end;align-items:center;padding:calc(12px + env(safe-area-inset-top,0px)) 5vw 12px;background:rgba(255,255,255,.65);backdrop-filter:blur(16px);border-bottom:1px solid var(--bd)}
+nav b{font-weight:900;background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent;font-size:18px}
+nav a.cta{padding:9px 20px;border-radius:99px;background:linear-gradient(120deg,var(--a),var(--b));color:#fff;text-decoration:none;font-weight:700;font-size:14px;box-shadow:0 8px 24px rgba(47,107,255,.35);transition:transform .3s}
+nav a.cta:hover{transform:translateY(-2px) scale(1.05)}
+section{max-width:1180px;margin:auto;padding:120px 6vw 80px}
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center}
+.tag{align-self:flex-start;padding:8px 18px;border-radius:99px;background:rgba(255,255,255,.8);border:1px solid var(--bd);color:var(--a);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;box-shadow:0 6px 24px rgba(47,107,255,.15)}
+h1{font-size:clamp(40px,8vw,98px);line-height:1.04;margin:22px 0 18px;font-weight:900;letter-spacing:-1px}
+h1 span{background:linear-gradient(100deg,var(--a),var(--b),var(--c),var(--o),var(--a));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 7s linear infinite}
 @keyframes flow{to{background-position:300% 0}}
-.lead{max-width:620px;color:var(--mut);font-size:clamp(16px,2vw,20px)}
+.lead{max-width:600px;color:var(--mut);font-size:clamp(16px,2vw,20px)}
+.lead b{color:var(--tx)}
 .btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
-.btn{position:relative;padding:15px 30px;border-radius:14px;text-decoration:none;font-weight:700;color:#fff;overflow:hidden;transition:transform .3s,box-shadow .3s}
-.btn.p{background:linear-gradient(120deg,var(--b),var(--a));color:#04101a;box-shadow:0 10px 40px rgba(94,231,255,.3)}
-.btn.g{border:1px solid var(--bd);background:var(--card);backdrop-filter:blur(8px)}
-.btn:hover{transform:translateY(-4px) scale(1.03)}
-.scroll{position:absolute;bottom:26px;left:50%;width:24px;height:40px;border:2px solid var(--mut);border-radius:14px;opacity:.7}
-.scroll::after{content:"";position:absolute;left:50%;top:7px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--a);animation:sc 1.6s infinite}
-@keyframes sc{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(14px)}}
-h2{font-size:clamp(30px,5vw,56px);margin:0 0 12px;font-weight:900}
-h2 em{font-style:normal;color:var(--a)}
-.sub{color:var(--mut);max-width:640px;margin-bottom:44px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;perspective:1000px}
-.card{padding:30px;border:1px solid var(--bd);border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.02));backdrop-filter:blur(12px);transform-style:preserve-3d;transition:transform .15s ease-out,border-color .3s;will-change:transform}
-.card:hover{border-color:var(--a)}
-.card .ic{font-size:40px;transform:translateZ(50px);display:inline-block;filter:drop-shadow(0 8px 14px rgba(94,231,255,.4))}
-.card h3{margin:14px 0 8px;transform:translateZ(30px)}
-.card p{margin:0;color:var(--mut);font-size:15px;transform:translateZ(15px)}
-.bars{margin-top:46px;display:grid;gap:18px;max-width:700px}
-.bar label{display:flex;justify-content:space-between;font-size:14px;margin-bottom:7px}
-.bar i{display:block;height:10px;border-radius:9px;background:rgba(255,255,255,.08);overflow:hidden}
-.bar i b{display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,var(--b),var(--a),var(--c));box-shadow:0 0 18px var(--a);transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
-.in .bar i b{width:var(--w)}
-.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
-.cc{display:flex;align-items:center;gap:20px;padding:28px;border-radius:22px;text-decoration:none;color:var(--tx);border:1px solid var(--bd);background:var(--card);backdrop-filter:blur(12px);transition:transform .35s,box-shadow .35s,border-color .35s}
-.cc:hover{transform:translateY(-8px) rotateX(6deg);border-color:var(--a);box-shadow:0 20px 60px rgba(165,107,255,.35)}
-.cc .lg{flex:none;width:62px;height:62px;border-radius:18px;display:grid;place-items:center;font-size:30px;font-weight:900}
+.btn{padding:16px 32px;border-radius:16px;text-decoration:none;font-weight:800;transition:transform .3s,box-shadow .3s}
+.btn.p{background:linear-gradient(120deg,var(--a),var(--b));color:#fff;box-shadow:0 14px 40px rgba(94,77,255,.4)}
+.btn.g{background:rgba(255,255,255,.85);color:var(--tx);border:1px solid var(--bd);box-shadow:0 8px 28px rgba(20,26,68,.1)}
+.btn:hover{transform:translateY(-5px) scale(1.03)}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
+.chips span{padding:8px 16px;border-radius:12px;background:rgba(255,255,255,.7);border:1px solid var(--bd);font-weight:600;font-size:14px}
+.chips span:nth-child(2){animation-delay:.5s}.chips span:nth-child(3){animation-delay:1s}.chips span:nth-child(4){animation-delay:1.5s}.chips span:nth-child(5){animation-delay:2s}
+@keyframes bob{50%{transform:translateY(-7px)}}
+h2{font-size:clamp(30px,5vw,54px);margin:0 0 12px;font-weight:900;letter-spacing:-.5px}
+h2 em{font-style:normal;background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--mut);max-width:620px;margin:0 0 42px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;perspective:1000px}
+.card{padding:30px;border-radius:26px;background:rgba(255,255,255,.78);border:1px solid var(--bd);backdrop-filter:blur(14px);box-shadow:0 20px 50px rgba(60,70,160,.14);transform-style:preserve-3d;transition:transform .15s ease-out,box-shadow .3s;will-change:transform}
+.card:hover{box-shadow:0 30px 70px rgba(94,77,255,.28)}
+.ic{display:grid;place-items:center;width:64px;height:64px;border-radius:20px;font-size:32px;color:#fff;transform:translateZ(45px);box-shadow:0 14px 28px rgba(47,107,255,.35)}
+.card:nth-child(1) .ic{background:linear-gradient(135deg,#2f6bff,#6ea8ff)}
+.card:nth-child(2) .ic{background:linear-gradient(135deg,#8a4dff,#c39bff)}
+.card:nth-child(3) .ic{background:linear-gradient(135deg,#ff6a9e,#ffa3c2)}
+.card:nth-child(4) .ic{background:linear-gradient(135deg,#ff9a3d,#ffc46b)}
+.card:nth-child(5) .ic{background:linear-gradient(135deg,#12b886,#63e6be)}
+.card:nth-child(6) .ic{background:linear-gradient(135deg,#1c7ed6,#74c0fc)}
+.card:nth-child(7) .ic{background:linear-gradient(135deg,#e8590c,#ffa94d)}
+.card:nth-child(8) .ic{background:linear-gradient(135deg,#7048e8,#da77f2)}
+.card h3{margin:18px 0 8px;font-size:20px;transform:translateZ(28px)}
+.card p{margin:0;color:var(--mut);font-size:15px;transform:translateZ(12px)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;counter-reset:s}
+.step{position:relative;padding:28px 24px;border-radius:22px;background:rgba(255,255,255,.7);border:1px solid var(--bd);backdrop-filter:blur(12px)}
+.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:42px;height:42px;border-radius:14px;margin-bottom:14px;background:linear-gradient(135deg,var(--a),var(--b));color:#fff;font-weight:900}
+.step h3{margin:0 0 6px;font-size:18px}.step p{margin:0;color:var(--mut);font-size:15px}
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
+.cc{display:flex;align-items:center;gap:20px;padding:28px;border-radius:26px;text-decoration:none;color:var(--tx);background:rgba(255,255,255,.82);border:1px solid var(--bd);backdrop-filter:blur(14px);box-shadow:0 20px 50px rgba(60,70,160,.14);transition:transform .35s,box-shadow .35s}
+.cc:hover{transform:translateY(-8px);box-shadow:0 30px 70px rgba(94,77,255,.3)}
+.lg{flex:none;width:64px;height:64px;border-radius:20px;display:grid;place-items:center;font-size:32px;font-weight:900;color:#fff}
 .fb .lg{background:linear-gradient(135deg,#1877f2,#5aa2ff)}
-.tt .lg{background:linear-gradient(135deg,#ff0050,#00f2ea)}
-.cc small{color:var(--mut);display:block}
-.cc strong{font-size:18px;word-break:break-all}
-footer{text-align:center;padding:40px 5vw 50px;color:var(--mut);font-size:14px;border-top:1px solid var(--bd);background:rgba(5,6,15,.6)}
-.rv{opacity:0;transform:translateY(50px) scale(.97);transition:opacity 1s,transform 1s cubic-bezier(.2,.8,.2,1)}
+.tt .lg{background:linear-gradient(135deg,#111,#ff0050 60%,#00f2ea)}
+.cc small{display:block;color:var(--mut)}.cc strong{font-size:18px;word-break:break-all}
+footer{text-align:center;padding:36px 5vw 46px;color:var(--mut);font-size:14px;background:rgba(255,255,255,.55);backdrop-filter:blur(10px);border-top:1px solid var(--bd)}
+.rv{opacity:0;transform:translateY(46px) scale(.97);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1)}
 .in .rv,.rv.in{opacity:1;transform:none}
-.in .rv:nth-child(2){transition-delay:.15s}.in .rv:nth-child(3){transition-delay:.3s}.in .rv:nth-child(4){transition-delay:.45s}
-@media(max-width:640px){nav div a:not(:last-child){display:none}}
+.in .rv:nth-child(2){transition-delay:.12s}.in .rv:nth-child(3){transition-delay:.24s}.in .rv:nth-child(4){transition-delay:.36s}.in .rv:nth-child(5){transition-delay:.48s}.in .rv:nth-child(6){transition-delay:.6s}.in .rv:nth-child(7){transition-delay:.7s}.in .rv:nth-child(8){transition-delay:.8s}
+@media(max-width:640px){nav b{font-size:15px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 <canvas id="bg"></canvas>
-<nav><b>XUYÊN.DEV</b><div><a href="#hero">Trang chủ</a><a href="#about">Giới thiệu</a><a href="#skills">Kỹ năng</a><a href="#contact">Liên hệ</a></div></nav>
+<nav><a class="cta" href="#contact">Liên hệ ngay</a></nav>
 <main>
 <section id="hero" class="in">
- <span class="tag rv">Công nghệ · Lập trình · VPS</span>
- <h1 class="rv">Xin chào, tôi là<br><span>Nguyễn Đình Xuyên</span></h1>
- <p class="lead rv">Người trẻ đam mê công nghệ, yêu thích lập trình, tự tay vận hành server trên VPS và quản lý dữ liệu với phpMyAdmin. Biến ý tưởng thành sản phẩm chạy thật.</p>
- <div class="btns rv"><a class="btn p" href="#contact">Liên hệ với tôi</a><a class="btn g" href="#about">Khám phá thêm</a></div>
- <div class="scroll"></div>
+ <span class="tag rv">Setup Server · VPS · Game Jar Mod</span>
+ <h1 class="rv">Nhận setup server<br>&amp; chạy trên <span>VPS</span></h1>
+ <p class="lead rv">Mình nhận setup server, đưa website lên VPS, cài phpMyAdmin và game server <b>jar mod</b> theo phiên bản, mod, IP bạn yêu cầu.</p>
+ <div class="btns rv"><a class="btn p" href="#contact">Nhận tư vấn</a><a class="btn g" href="#services">Xem dịch vụ</a></div>
+ <div class="chips rv"><span>🖥️ VPS</span><span>🐧 Linux</span><span>🌐 Nginx / Apache</span><span>🐘 PHP</span><span>🗄️ phpMyAdmin</span><span>🎮 Game Jar Mod</span></div>
 </section>
 
-<section id="about">
- <div class="rv"><h2>Về <em>tôi</em></h2><p class="sub">Công nghệ không chỉ là công việc, đó là niềm đam mê khiến tôi học hỏi mỗi ngày: từ dòng code đầu tiên đến một hệ thống chạy ổn định 24/7.</p></div>
+<section id="services">
+ <div class="rv"><h2>Dịch vụ <em>mình nhận</em></h2><p class="sub">Từ VPS trống đến hệ thống chạy thật, mình lo toàn bộ phần kỹ thuật cho bạn.</p></div>
  <div class="grid in">
-  <div class="card rv"><span class="ic">💻</span><h3>Đam mê công nghệ</h3><p>Luôn tò mò, cập nhật xu hướng mới và thích thử nghiệm những công cụ, nền tảng hiện đại.</p></div>
-  <div class="card rv"><span class="ic">⌨️</span><h3>Lập trình</h3><p>Viết code sạch, tối ưu và dễ mở rộng, từ website đến các ứng dụng xử lý dữ liệu.</p></div>
-  <div class="card rv"><span class="ic">🖥️</span><h3>Chạy server trên VPS</h3><p>Cài đặt, cấu hình và vận hành máy chủ riêng, đảm bảo tốc độ, bảo mật và độ ổn định.</p></div>
-  <div class="card rv"><span class="ic">🗄️</span><h3>Quản lý phpMyAdmin</h3><p>Thiết kế, sao lưu và quản trị cơ sở dữ liệu MySQL trực quan, an toàn qua phpMyAdmin.</p></div>
+  <div class="card rv"><span class="ic">🖥️</span><h3>Setup VPS từ đầu</h3><p>Khởi tạo, cập nhật hệ điều hành, tạo người dùng và thiết lập môi trường sẵn sàng sử dụng.</p></div>
+  <div class="card rv"><span class="ic">🌐</span><h3>Cài web server</h3><p>Cấu hình Nginx hoặc Apache, PHP, MySQL để website chạy mượt và ổn định.</p></div>
+  <div class="card rv"><span class="ic">🗄️</span><h3>Cài &amp; quản lý phpMyAdmin</h3><p>Cài đặt phpMyAdmin, tạo database, phân quyền và hướng dẫn thao tác an toàn.</p></div>
+  <div class="card rv"><span class="ic">🚀</span><h3>Đưa website lên chạy</h3><p>Upload mã nguồn, trỏ tên miền, cài chứng chỉ SSL để website hoạt động chính thức.</p></div>
+  <div class="card rv"><span class="ic">🛡️</span><h3>Bảo mật server</h3><p>Thiết lập tường lửa, đổi cổng, chặn truy cập trái phép để bảo vệ máy chủ.</p></div>
+  <div class="card rv"><span class="ic">💾</span><h3>Sao lưu &amp; bảo trì</h3><p>Cài sao lưu dữ liệu định kỳ, theo dõi và xử lý sự cố khi server gặp lỗi.</p></div>
+  <div class="card rv"><span class="ic">🎮</span><h3>Cài game jar mod</h3><p>Cài đặt game server file .jar (như Minecraft), cấu hình chạy 24/7 trên VPS ổn định.</p></div>
+  <div class="card rv"><span class="ic">🧩</span><h3>Phiên bản, mod &amp; IP theo yêu cầu</h3><p>Chọn đúng phiên bản game, cài mod/plugin và thiết lập IP, cổng kết nối theo ý bạn.</p></div>
  </div>
 </section>
 
-<section id="skills">
- <div class="rv"><h2>Năng lực <em>cốt lõi</em></h2><p class="sub">Những mảng tôi theo đuổi và không ngừng nâng cấp.</p></div>
- <div class="bars" id="bars">
-  <div class="bar rv"><label><span>Đam mê công nghệ</span><span>100%</span></label><i><b style="--w:100%"></b></i></div>
-  <div class="bar rv"><label><span>Lập trình</span><span>90%</span></label><i><b style="--w:90%"></b></i></div>
-  <div class="bar rv"><label><span>Vận hành server VPS</span><span>88%</span></label><i><b style="--w:88%"></b></i></div>
-  <div class="bar rv"><label><span>Quản trị phpMyAdmin / MySQL</span><span>85%</span></label><i><b style="--w:85%"></b></i></div>
+<section id="process">
+ <div class="rv"><h2>Quy trình <em>làm việc</em></h2><p class="sub">Rõ ràng, nhanh chóng và minh bạch từng bước.</p></div>
+ <div class="steps in">
+  <div class="step rv"><h3>Liên hệ</h3><p>Gửi yêu cầu qua Facebook hoặc TikTok.</p></div>
+  <div class="step rv"><h3>Trao đổi</h3><p>Chốt nhu cầu, cấu hình và thời gian.</p></div>
+  <div class="step rv"><h3>Thực hiện</h3><p>Setup server và đưa hệ thống lên chạy.</p></div>
+  <div class="step rv"><h3>Bàn giao</h3><p>Kiểm tra, hướng dẫn sử dụng và hỗ trợ.</p></div>
  </div>
 </section>
 
 <section id="contact">
- <div class="rv"><h2>Thông tin <em>liên hệ</em></h2><p class="sub">Kết nối với tôi qua mạng xã hội, luôn sẵn sàng trao đổi và hợp tác.</p></div>
- <div class="contact">
+ <div class="rv"><h2>Thông tin <em>liên hệ</em></h2><p class="sub">Nhắn tin để được tư vấn và báo giá theo nhu cầu của bạn.</p></div>
+ <div class="contact in">
   <a class="cc fb rv" href="https://www.facebook.com/share/19vWpaFCnz/?mibextid=wwXIfr" target="_blank" rel="noopener"><span class="lg">f</span><div><small>Facebook</small><strong>Nguyễn Đình Xuyên</strong></div></a>
   <a class="cc tt rv" href="https://www.tiktok.com/@xuyn1801_" target="_blank" rel="noopener"><span class="lg">♪</span><div><small>TikTok</small><strong>@xuyn1801_</strong></div></a>
  </div>
 </section>
 </main>
-<footer>© 2026 Nguyễn Đình Xuyên · Đam mê công nghệ, kiến tạo bằng code.</footer>
+<footer>© 2026 Nguyễn Đình Xuyên · Nhận setup server &amp; chạy VPS</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 (function(){
-// Reveal on scroll
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
 document.querySelectorAll('section,.rv').forEach(function(el){io.observe(el)});
-// 3D tilt cards
-document.querySelectorAll('.card').forEach(function(c){
- c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform='rotateY('+x*18+'deg) rotateX('+-y*18+'deg) translateZ(10px)'});
+document.querySelectorAll('.card,.step').forEach(function(c){
+ c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform='rotateY('+x*16+'deg) rotateX('+-y*16+'deg) translateZ(8px)'});
  c.addEventListener('mouseleave',function(){c.style.transform=''});
 });
 if(typeof THREE==='undefined')return;
-var cv=document.getElementById('bg'),R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:false});
-R.setPixelRatio(Math.min(devicePixelRatio,2));R.setClearColor(0x05060f);
-var S=new THREE.Scene();S.fog=new THREE.FogExp2(0x070818,.014);
-var cam=new THREE.PerspectiveCamera(60,1,.1,400);cam.position.set(0,2,30);
-function rs(){R.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix()}
+var cv=document.getElementById('bg'),R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
+R.setPixelRatio(Math.min(devicePixelRatio,2));R.setClearColor(0x000000,0);
+var S=new THREE.Scene(),cam=new THREE.PerspectiveCamera(60,1,.1,400);cam.position.set(0,2,30);
+function rs(){R.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix();if(fall){var a=cam.aspect;fall.scale.setScalar(Math.min(1,.45+a*.35));fall.position.set(Math.max(10,34*a*.6),0,-24)}}
+var fall;
 addEventListener('resize',rs);rs();
-S.add(new THREE.AmbientLight(0x4455aa,.7));
-var l1=new THREE.PointLight(0x5ee7ff,2.2,120);l1.position.set(-20,15,10);S.add(l1);
-var l2=new THREE.PointLight(0xff5fa8,1.8,120);l2.position.set(25,-10,5);S.add(l2);
-// Stars
-var N=1800,pg=new THREE.BufferGeometry(),pp=new Float32Array(N*3);
-for(var i=0;i<N;i++){pp[i*3]=(Math.random()-.5)*300;pp[i*3+1]=(Math.random()-.5)*200;pp[i*3+2]=-Math.random()*200+40}
-pg.setAttribute('position',new THREE.BufferAttribute(pp,3));
-var stars=new THREE.Points(pg,new THREE.PointsMaterial({color:0xbfd8ff,size:.35,transparent:true,opacity:.85}));S.add(stars);
-// Embers
-var M=260,eg=new THREE.BufferGeometry(),ep=new Float32Array(M*3);
-for(i=0;i<M;i++){ep[i*3]=(Math.random()-.5)*60;ep[i*3+1]=(Math.random()-.5)*40;ep[i*3+2]=(Math.random()-.5)*40}
+S.add(new THREE.HemisphereLight(0xffffff,0xbfd0ff,1.05));
+var sun=new THREE.DirectionalLight(0xfff1d6,1.3);sun.position.set(-20,30,20);S.add(sun);
+var pk=new THREE.PointLight(0xff8ac0,1.2,120);pk.position.set(25,-5,10);S.add(pk);
+// Clouds
+var clouds=[],cm=new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.85});
+for(var c=0;c<14;c++){var g=new THREE.Group();
+ for(var k=0;k<6;k++){var s=new THREE.Mesh(new THREE.SphereGeometry(2+Math.random()*2.5,14,10),cm);s.position.set(k*2.6-6+Math.random(),Math.random()*1.5,Math.random()*2);s.scale.y=.6;g.add(s)}
+ g.position.set((Math.random()-.5)*130,4+Math.random()*28,-30-Math.random()*90);g.userData.v=.6+Math.random()*1.2;S.add(g);clouds.push(g)}
+// Sparkles
+var M=240,eg=new THREE.BufferGeometry(),ep=new Float32Array(M*3);
+for(var i=0;i<M;i++){ep[i*3]=(Math.random()-.5)*70;ep[i*3+1]=(Math.random()-.5)*40;ep[i*3+2]=(Math.random()-.5)*40}
 eg.setAttribute('position',new THREE.BufferAttribute(ep,3));
-var emb=new THREE.Points(eg,new THREE.PointsMaterial({color:0xff9ad0,size:.25,transparent:true,opacity:.8}));S.add(emb);
-// Giant dragon
+var emb=new THREE.Points(eg,new THREE.PointsMaterial({color:0xffb347,size:.3,transparent:true,opacity:.9}));S.add(emb);
+// Dragon
 var dragon=new THREE.Group();S.add(dragon);
-var SEG=70,segs=[],bodyM=new THREE.MeshStandardMaterial({color:0x2a3bff,emissive:0x1a1470,metalness:.6,roughness:.35});
-var spikeM=new THREE.MeshStandardMaterial({color:0x5ee7ff,emissive:0x2ab8d8,metalness:.4,roughness:.3});
-for(i=0;i<SEG;i++){
- var g=new THREE.Group(),k=1-i/SEG,sz=.45+Math.sin(Math.min(i/12,1)*Math.PI/2)*1.1*Math.pow(k,.7);
- var m=new THREE.Mesh(new THREE.SphereGeometry(sz,18,14),bodyM);g.add(m);
- var sp=new THREE.Mesh(new THREE.ConeGeometry(sz*.45,sz*1.6,6),spikeM);sp.position.y=sz*1.05;g.add(sp);
- dragon.add(g);segs.push(g)}
-var head=new THREE.Group();
-var hm=new THREE.Mesh(new THREE.SphereGeometry(1.5,24,18),bodyM);hm.scale.set(1,.8,1.5);head.add(hm);
-var snout=new THREE.Mesh(new THREE.ConeGeometry(.8,1.8,12),bodyM);snout.rotation.x=Math.PI/2;snout.position.z=2.2;head.add(snout);
-var eyeM=new THREE.MeshBasicMaterial({color:0xffe14d});
-[-.7,.7].forEach(function(x){var e=new THREE.Mesh(new THREE.SphereGeometry(.28,12,10),eyeM);e.position.set(x,.5,1.1);head.add(e);
+var SEG=70,segs=[],bodyM=new THREE.MeshStandardMaterial({color:0x3d63ff,emissive:0x1b2c9c,emissiveIntensity:.35,metalness:.3,roughness:.35});
+var spikeM=new THREE.MeshStandardMaterial({color:0xff9a3d,emissive:0xff6a00,emissiveIntensity:.35,roughness:.3});
+for(i=0;i<SEG;i++){var gp=new THREE.Group(),kk=1-i/SEG,sz=.45+Math.sin(Math.min(i/12,1)*Math.PI/2)*1.1*Math.pow(kk,.7);
+ gp.add(new THREE.Mesh(new THREE.SphereGeometry(sz,18,14),bodyM));
+ var sp=new THREE.Mesh(new THREE.ConeGeometry(sz*.45,sz*1.6,6),spikeM);sp.position.y=sz*1.05;gp.add(sp);dragon.add(gp);segs.push(gp)}
+var head=new THREE.Group(),hm=new THREE.Mesh(new THREE.SphereGeometry(1.5,24,18),bodyM);hm.scale.set(1,.8,1.5);head.add(hm);
+var sn=new THREE.Mesh(new THREE.ConeGeometry(.8,1.8,12),bodyM);sn.rotation.x=Math.PI/2;sn.position.z=2.2;head.add(sn);
+var ey=new THREE.MeshBasicMaterial({color:0xffe14d});
+[-.7,.7].forEach(function(x){var e=new THREE.Mesh(new THREE.SphereGeometry(.28,12,10),ey);e.position.set(x,.5,1.1);head.add(e);
  var h=new THREE.Mesh(new THREE.ConeGeometry(.28,2.2,8),spikeM);h.position.set(x*.9,1,-.6);h.rotation.x=-.9;head.add(h)});
 dragon.add(head);
-// Wings
 function wing(side){var sh=new THREE.Shape();sh.moveTo(0,0);sh.lineTo(side*9,5);sh.lineTo(side*13,-1);sh.lineTo(side*8,-1.5);sh.lineTo(side*6,-4.5);sh.lineTo(side*2.5,-2);sh.lineTo(0,0);
- var w=new THREE.Mesh(new THREE.ShapeGeometry(sh),new THREE.MeshStandardMaterial({color:0xa56bff,emissive:0x5a2bd0,side:THREE.DoubleSide,transparent:true,opacity:.82}));
+ var w=new THREE.Mesh(new THREE.ShapeGeometry(sh),new THREE.MeshStandardMaterial({color:0xff7ac8,emissive:0xc2398a,emissiveIntensity:.25,side:THREE.DoubleSide,transparent:true,opacity:.88}));
  var p=new THREE.Group();p.add(w);p.rotation.x=Math.PI/2;var o=new THREE.Group();o.add(p);return o}
 var wl=wing(-1),wr=wing(1);dragon.add(wl);dragon.add(wr);
 function P(t){return new THREE.Vector3(Math.sin(t*.55)*17,Math.sin(t*.9)*6+3,Math.cos(t*.4)*9-14)}
-// Giant whale
-var whale=new THREE.Group();
-var wb=new THREE.MeshStandardMaterial({color:0x14306a,emissive:0x0a1a40,metalness:.3,roughness:.5});
+// Whale
+var whale=new THREE.Group(),wb=new THREE.MeshStandardMaterial({color:0x4aa3ff,emissive:0x1d5fb8,emissiveIntensity:.25,roughness:.45});
 var body=new THREE.Mesh(new THREE.SphereGeometry(8,32,24),wb);body.scale.set(2.6,1,1);whale.add(body);
-var belly=new THREE.Mesh(new THREE.SphereGeometry(7,24,18),new THREE.MeshStandardMaterial({color:0x7fd6ff,emissive:0x1d6a90}));belly.scale.set(2.3,.7,.85);belly.position.y=-2;whale.add(belly);
+var bel=new THREE.Mesh(new THREE.SphereGeometry(7,24,18),new THREE.MeshStandardMaterial({color:0xffffff,emissive:0xbfe3ff,emissiveIntensity:.3}));bel.scale.set(2.3,.7,.85);bel.position.y=-2;whale.add(bel);
 var tail=new THREE.Group();tail.position.x=-20;
 var tb=new THREE.Mesh(new THREE.ConeGeometry(3,14,16),wb);tb.rotation.z=Math.PI/2;tb.position.x=-6;tail.add(tb);
-var fl=new THREE.Mesh(new THREE.BoxGeometry(1,10,6),wb);fl.scale.set(.3,1,1);fl.position.x=-13;fl.rotation.x=Math.PI/2;fl.geometry.translate(0,0,0);tail.add(fl);
-whale.add(tail);
-var fin=new THREE.Mesh(new THREE.ConeGeometry(2.5,9,10),wb);fin.position.set(6,-6,6);fin.rotation.set(0,0,-1);whale.add(fin);
-[1].forEach(function(){var e=new THREE.Mesh(new THREE.SphereGeometry(.6,10,8),new THREE.MeshBasicMaterial({color:0x9ffcff}));e.position.set(15,1.5,6.5);whale.add(e)});
-whale.scale.setScalar(1.3);whale.position.set(-10,-18,-95);S.add(whale);
-// Interaction
+var fl=new THREE.Mesh(new THREE.BoxGeometry(.3,10,6),wb);fl.position.x=-13;fl.rotation.x=Math.PI/2;tail.add(fl);whale.add(tail);
+var fin=new THREE.Mesh(new THREE.ConeGeometry(2.5,9,10),wb);fin.position.set(6,-6,6);fin.rotation.z=-1;whale.add(fin);
+var we=new THREE.Mesh(new THREE.SphereGeometry(.6,10,8),new THREE.MeshBasicMaterial({color:0x10204a}));we.position.set(15,1.5,6.5);whale.add(we);
+whale.scale.setScalar(1.3);whale.position.set(-10,6,-95);S.add(whale);
+
+function wg(side,col,sc){var sh=new THREE.Shape();sh.moveTo(0,0);sh.lineTo(side*6,3);sh.lineTo(side*9,-.5);sh.lineTo(side*5,-1);sh.lineTo(side*2,-2.5);sh.lineTo(0,0);
+ var m=new THREE.Mesh(new THREE.ShapeGeometry(sh),new THREE.MeshStandardMaterial({color:col,emissive:col,emissiveIntensity:.3,side:THREE.DoubleSide,transparent:true,opacity:.9}));
+ var p=new THREE.Group();p.add(m);p.rotation.x=Math.PI/2;var o=new THREE.Group();o.add(p);o.scale.setScalar(sc);return o}
+// Phoenix
+var ph=new THREE.Group(),gm=new THREE.MeshStandardMaterial({color:0xffb020,emissive:0xff6a00,emissiveIntensity:.5,roughness:.4});
+var pb=new THREE.Mesh(new THREE.SphereGeometry(1.6,18,14),gm);pb.scale.set(.8,.8,1.8);ph.add(pb);
+var pn=new THREE.Mesh(new THREE.SphereGeometry(.9,14,10),gm);pn.position.set(0,.4,2.6);ph.add(pn);
+var bk=new THREE.Mesh(new THREE.ConeGeometry(.35,1,8),new THREE.MeshStandardMaterial({color:0xff4d4d}));bk.rotation.x=Math.PI/2;bk.position.set(0,.3,3.5);ph.add(bk);
+for(var q=-2;q<=2;q++){var tf=new THREE.Mesh(new THREE.ConeGeometry(.35,7,6),new THREE.MeshStandardMaterial({color:q%2?0xff4d6d:0xffd23d,emissive:0xff5a00,emissiveIntensity:.4}));tf.position.set(q*.5,0,-4.5);tf.rotation.set(-Math.PI/2,0,q*.12);ph.add(tf)}
+var pw1=wg(-1,0xff7a1a,1.7),pw2=wg(1,0xff7a1a,1.7);pw1.position.z=pw2.position.z=.4;ph.add(pw1);ph.add(pw2);ph.scale.setScalar(1.6);S.add(ph);
+function Q(t){return new THREE.Vector3(Math.cos(t*.35)*28,Math.sin(t*.5)*6+10,Math.sin(t*.35)*10-26)}
+// Manta ray
+var mt=new THREE.Group(),mm=new THREE.MeshStandardMaterial({color:0x5cc8ff,emissive:0x1d78c8,emissiveIntensity:.3,roughness:.4});
+var mb=new THREE.Mesh(new THREE.SphereGeometry(2,18,14),mm);mb.scale.set(1.2,.5,2.4);mt.add(mb);
+var mtl=new THREE.Mesh(new THREE.ConeGeometry(.35,14,8),mm);mtl.rotation.x=-Math.PI/2;mtl.position.z=-9;mt.add(mtl);
+var mw1=wg(-1,0x7fd8ff,2.6),mw2=wg(1,0x7fd8ff,2.6);mt.add(mw1);mt.add(mw2);S.add(mt);
+function Mp(t){return new THREE.Vector3(24+Math.sin(t*.2)*14,0+Math.sin(t*.4)*3,-46+Math.cos(t*.2)*9)}
+// Bird flock
+var birds=[];for(var b=0;b<14;b++){var bg=new THREE.Group(),bm=new THREE.Mesh(new THREE.SphereGeometry(.35,10,8),new THREE.MeshStandardMaterial({color:0xffffff}));bm.scale.z=2;bg.add(bm);
+ var bw1=wg(-1,0xffffff,.28),bw2=wg(1,0xffffff,.28);bg.add(bw1);bg.add(bw2);bg.userData={a:bw1,b:bw2,i:b};S.add(bg);birds.push(bg)}
+function Bp(t,i){return new THREE.Vector3(Math.cos(t*.22+i*.45)*38,14+Math.sin(i*1.7)*4+Math.sin(t*2+i)*.8,-42+Math.sin(t*.22+i*.45)*12)}
+
+// Ground
+var gnd=new THREE.Mesh(new THREE.PlaneGeometry(240,140),new THREE.MeshStandardMaterial({color:0x6cc25a,roughness:1}));gnd.rotation.x=-Math.PI/2;gnd.position.set(0,-16,-30);S.add(gnd);
+// Grass (swaying blades)
+var GN=14000,gp=new Float32Array(GN*9),gh=new Float32Array(GN*3),gr=new Float32Array(GN*3);
+for(var n=0;n<GN;n++){var bx=(Math.random()-.5)*115,bz=22-Math.random()*70,bh=1.2+Math.random()*1.9,ang=Math.random()*3.14,dx=Math.cos(ang)*.3,dz=Math.sin(ang)*.3,rr=Math.random();
+ gp.set([bx-dx,-16,bz-dz,bx+dx,-16,bz+dz,bx+(Math.random()-.5)*.5,-16+bh,bz],n*9);gh.set([0,0,1],n*3);gr.set([rr,rr,rr],n*3)}
+var gg=new THREE.BufferGeometry();gg.setAttribute('position',new THREE.BufferAttribute(gp,3));gg.setAttribute('hh',new THREE.BufferAttribute(gh,1));gg.setAttribute('rr',new THREE.BufferAttribute(gr,1));
+var gMat=new THREE.ShaderMaterial({uniforms:{uT:{value:0}},side:THREE.DoubleSide,
+ vertexShader:'attribute float hh;attribute float rr;uniform float uT;varying float vh;varying float vr;void main(){vh=hh;vr=rr;vec3 p=position;p.x+=sin(uT*1.6+p.x*.25+p.z*.2)*.55*hh;p.z+=cos(uT*1.3+p.x*.2)*.25*hh;gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.);}',
+ fragmentShader:'varying float vh;varying float vr;void main(){vec3 c=mix(vec3(.16,.46,.14),vec3(.66,.88,.3),vh);c*=.85+vr*.3;gl_FragColor=vec4(c,1.);}'});
+var grass=new THREE.Mesh(gg,gMat);grass.frustumCulled=false;S.add(grass);
+// Trees
+var trees=[],trm=new THREE.MeshStandardMaterial({color:0x6b4a2b,roughness:1});
+function tree(x,z,sc,pine){var g=new THREE.Group(),tr=new THREE.Mesh(new THREE.CylinderGeometry(.5,.8,5,8),trm);tr.position.y=2.5;g.add(tr);
+ var lm=new THREE.MeshStandardMaterial({color:pine?0x1f7a3d:0x3fae3a,roughness:.9});
+ if(pine){for(var j=0;j<4;j++){var co=new THREE.Mesh(new THREE.ConeGeometry(4-j*.8,4.5,10),lm);co.position.y=4+j*2.6;g.add(co)}}
+ else{for(var j=0;j<5;j++){var sp=new THREE.Mesh(new THREE.SphereGeometry(2.6+Math.random()*1.2,12,10),lm);sp.position.set((Math.random()-.5)*4,7+Math.random()*3,(Math.random()-.5)*4);g.add(sp)}}
+ g.scale.setScalar(sc);g.position.set(x,-16,z);g.userData.p=Math.random()*6;S.add(g);trees.push(g)}
+for(i=0;i<46;i++)tree((Math.random()-.5)*110,-Math.random()*48-4,.9+Math.random()*1.1,Math.random()<.5);
+// Cliff + waterfall
+fall=new THREE.Group();S.add(fall);
+var rk=new THREE.MeshStandardMaterial({color:0x7d8794,roughness:1,flatShading:true});
+var cl=new THREE.Mesh(new THREE.BoxGeometry(26,30,10),rk);cl.position.set(0,-1,-5);fall.add(cl);
+for(i=0;i<9;i++){var bd=new THREE.Mesh(new THREE.DodecahedronGeometry(3+Math.random()*3,1),rk);bd.position.set((Math.random()-.5)*26,(Math.random()<.5?14:-12)+Math.random()*3,-4+Math.random()*3);bd.scale.y=.8;fall.add(bd)}
+var cap=new THREE.Mesh(new THREE.SphereGeometry(13,20,12),new THREE.MeshStandardMaterial({color:0x4fa83e,roughness:1}));cap.scale.set(1,.25,.45);cap.position.set(0,14.5,-5);fall.add(cap);
+var cv2=document.createElement('canvas');cv2.width=64;cv2.height=256;var cx=cv2.getContext('2d'),lg=cx.createLinearGradient(0,0,64,0);
+lg.addColorStop(0,'rgba(220,245,255,.1)');lg.addColorStop(.2,'rgba(220,245,255,.8)');lg.addColorStop(.8,'rgba(220,245,255,.8)');lg.addColorStop(1,'rgba(220,245,255,.1)');cx.fillStyle=lg;cx.fillRect(0,0,64,256);
+for(i=0;i<70;i++){cx.fillStyle='rgba(255,255,255,'+Math.random()*.7+')';cx.fillRect(Math.random()*64,Math.random()*230,1+Math.random()*2,20+Math.random()*80)}
+var wt=new THREE.CanvasTexture(cv2);wt.wrapS=wt.wrapT=THREE.RepeatWrapping;wt.repeat.set(1,2);
+var wat=new THREE.Mesh(new THREE.PlaneGeometry(6,30),new THREE.MeshBasicMaterial({map:wt,color:0xbfe6ff,transparent:true,opacity:.9,depthWrite:false}));wat.position.set(0,-1,.4);fall.add(wat);
+var pool=new THREE.Mesh(new THREE.CircleGeometry(10,40),new THREE.MeshStandardMaterial({color:0x3fb0e8,transparent:true,opacity:.85,roughness:.2,metalness:.2}));pool.rotation.x=-Math.PI/2;pool.position.set(0,-15.8,6);fall.add(pool);
+var SP=700,spg=new THREE.BufferGeometry(),spa=new Float32Array(SP*3),sv=[];
+for(i=0;i<SP;i++){spa[i*3]=(Math.random()-.5)*5.5;spa[i*3+1]=-15+Math.random()*29;spa[i*3+2]=.6+Math.random()*.8;sv.push(.18+Math.random()*.25)}
+spg.setAttribute('position',new THREE.BufferAttribute(spa,3));
+var spray=new THREE.Points(spg,new THREE.PointsMaterial({color:0xffffff,size:.4,transparent:true,opacity:.8,depthWrite:false,blending:THREE.AdditiveBlending}));fall.add(spray);
+var MI=140,mg=new THREE.BufferGeometry(),ma=new Float32Array(MI*3);
+for(i=0;i<MI;i++){ma[i*3]=(Math.random()-.5)*12;ma[i*3+1]=-15+Math.random()*6;ma[i*3+2]=1+Math.random()*6}
+mg.setAttribute('position',new THREE.BufferAttribute(ma,3));
+var mist=new THREE.Points(mg,new THREE.PointsMaterial({color:0xffffff,size:3.2,transparent:true,opacity:.22,depthWrite:false}));fall.add(mist);
+rs();
+var H1=document.querySelector('h1');
 var mx=0,my=0,sy=0;
-addEventListener('mousemove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+addEventListener('mousemove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;H1.style.transform='perspective(900px) rotateY('+mx*7+'deg) rotateX('+-my*5+'deg)'});
 addEventListener('scroll',function(){sy=scrollY/Math.max(1,document.body.scrollHeight-innerHeight)});
 var clk=new THREE.Clock(),still=matchMedia('(prefers-reduced-motion:reduce)').matches;
-function loop(){
- requestAnimationFrame(loop);var t=clk.getElapsedTime()*(still?0:1)+4;
+function loop(){requestAnimationFrame(loop);var t=clk.getElapsedTime()*(still?0:1)+4;
  for(var i=0;i<SEG;i++){var p=P(t-i*.075);segs[i].position.copy(p);segs[i].position.y+=Math.sin(t*3-i*.4)*.25;segs[i].scale.setScalar(1+Math.sin(t*2-i*.3)*.04)}
- var hp=P(t),ah=P(t+.1);head.position.copy(hp);head.lookAt(ah);
- var fp=Math.sin(t*3.2)*.55;
- var wp=P(t-.45);wl.position.copy(wp);wr.position.copy(wp);wl.rotation.z=fp;wr.rotation.z=-fp;wl.rotation.y=wr.rotation.y=0;
- whale.position.x=-10+Math.sin(t*.12)*30;whale.position.y=-18+Math.sin(t*.3)*3;whale.rotation.y=Math.cos(t*.12)*.25;
- tail.rotation.y=Math.sin(t*1.1)*.28;tail.rotation.z=Math.sin(t*1.1)*.08;
- stars.rotation.y=t*.004;emb.rotation.y=-t*.03;emb.position.y=Math.sin(t*.4)*1.5;
- l1.position.x=-20+Math.sin(t*.5)*10;
- cam.position.x+=((mx*14)-cam.position.x)*.04;
- cam.position.y+=((2-my*8-sy*14)-cam.position.y)*.04;
- cam.position.z=30-sy*22;
- cam.lookAt(0,sy*-6,-10);
+ var hp=P(t);head.position.copy(hp);head.lookAt(P(t+.1));
+ var fp=Math.sin(t*3.2)*.55,wp=P(t-.45);wl.position.copy(wp);wr.position.copy(wp);wl.rotation.z=fp;wr.rotation.z=-fp;
+ whale.position.x=-10+Math.sin(t*.12)*30;whale.position.y=6+Math.sin(t*.3)*3;whale.rotation.y=Math.cos(t*.12)*.25;
+ tail.rotation.y=Math.sin(t*1.1)*.28;
+
+ ph.position.copy(Q(t));ph.lookAt(Q(t+.1));var pf=Math.sin(t*4)*.6;pw1.rotation.z=pf;pw2.rotation.z=-pf;
+ mt.position.copy(Mp(t));mt.lookAt(Mp(t+.1));var mf=Math.sin(t*1.6)*.35;mw1.rotation.z=mf;mw2.rotation.z=-mf;
+ birds.forEach(function(g){var i=g.userData.i;g.position.copy(Bp(t,i));g.lookAt(Bp(t+.1,i));var f=Math.sin(t*7+i)*.7;g.userData.a.rotation.z=f;g.userData.b.rotation.z=-f});
+
+ wt.offset.y+=.03;gMat.uniforms.uT.value=t;
+ var sa=spg.attributes.position.array;for(var u=0;u<SP;u++){sa[u*3+1]-=sv[u];if(sa[u*3+1]<-15.5)sa[u*3+1]=14}spg.attributes.position.needsUpdate=true;
+ var mq=mg.attributes.position.array;for(var u2=0;u2<MI;u2++){mq[u2*3+1]+=.04;if(mq[u2*3+1]>-8)mq[u2*3+1]=-15}mg.attributes.position.needsUpdate=true;
+ trees.forEach(function(g){g.rotation.z=Math.sin(t*1.2+g.userData.p)*.012});
+ clouds.forEach(function(g){g.position.x+=g.userData.v*.02;if(g.position.x>75)g.position.x=-75});
+ emb.rotation.y=-t*.03;emb.position.y=Math.sin(t*.4)*1.5;
+ cam.position.x+=((mx*14)-cam.position.x)*.04;cam.position.y+=((2-my*8-sy*14)-cam.position.y)*.04;cam.position.z=30-sy*22;cam.lookAt(0,sy*-6,-10);
  R.render(S,cam)}
 loop();
 })();
 </script>
 </body>
 </html>
-
